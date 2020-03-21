@@ -1,40 +1,39 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        portfolio-perso
-      </h1>
-      <h2 class="subtitle">
-        Portfolio Sowa Killian
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+      <home-landing />
+      <home-projects />
+      <home-about />
+      <home-contact />
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import HomeLanding from '~/components/home/HomeLanding.vue'
+import HomeProjects from '~/components/home/HomeProjects.vue'
+import HomeAbout from '~/components/home/HomeAbout.vue'
+import HomeContact from '~/components/home/HomeContact.vue'
 
 export default {
   components: {
-    Logo
-  }
+    HomeLanding,
+    HomeProjects,
+    HomeAbout,
+    HomeContact,
+  },
+
+    mounted() {
+        setTimeout(() => {
+            this.$store.commit('CHANGE_INDEXANIMATION_TITLEVISIBLE_STATE', true);
+        }, 500);
+
+        setTimeout(() => {
+            this.$store.commit('CHANGE_INDEXANIMATION_OVERLAYHIDDEN_STATE', true);
+        }, 2000);
+
+        setTimeout(() => {
+            this.$store.commit('CHANGE_INDEXANIMATION_OTHERANIMATIONS_STATE', true);
+        }, 6000)
+    }
 }
 </script>
 
@@ -42,7 +41,6 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
