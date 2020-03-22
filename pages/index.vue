@@ -13,6 +13,10 @@ import HomeProjects from '~/components/home/HomeProjects.vue'
 import HomeAbout from '~/components/home/HomeAbout.vue'
 import HomeContact from '~/components/home/HomeContact.vue'
 
+let titleVisible;
+let overlayHidden;
+let otherAnimations;
+
 export default {
   components: {
     HomeLanding,
@@ -21,18 +25,25 @@ export default {
     HomeContact,
   },
 
+
     mounted() {
-        setTimeout(() => {
+      titleVisible = setTimeout(() => {
             this.$store.commit('CHANGE_INDEXANIMATION_TITLEVISIBLE_STATE', true);
         }, 500);
 
-        setTimeout(() => {
+      overlayHidden = setTimeout(() => {
             this.$store.commit('CHANGE_INDEXANIMATION_OVERLAYHIDDEN_STATE', true);
         }, 2000);
 
-        setTimeout(() => {
+      otherAnimations = setTimeout(() => {
             this.$store.commit('CHANGE_INDEXANIMATION_OTHERANIMATIONS_STATE', true);
         }, 6000)
+    },
+
+    destroyed() {
+      clearTimeout(titleVisible);
+      clearTimeout(overlayHidden);
+      clearTimeout(otherAnimations);
     }
 }
 </script>

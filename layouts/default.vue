@@ -1,9 +1,19 @@
 <template>
   <div>
+    <global-nav />
     <nuxt />
   </div>
 </template>
 
+<script>
+  import GlobalNav from '~/components/global/GlobalNav.vue';
+
+  export default {
+      components: {
+          GlobalNav
+      }
+  }
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

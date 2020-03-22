@@ -11,7 +11,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "gsap": "^3.2.5",
+    "nuxt": "^2.0.0",
+    "scrollmagic": "^2.0.7",
+    "scrollscene": "^0.0.15"
   },
   "devDependencies": {
     "coffee-loader": "^0.9.0",

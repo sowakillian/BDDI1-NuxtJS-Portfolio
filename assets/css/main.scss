@@ -61,7 +61,38 @@ body {
   }
 }
 
+.section-title {
+  font-size: 100px;
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin-bottom: 90px;
 
+  &-mainTitle {
+
+  }
+
+  &-contour {
+    color: rgba(0,0,0,0);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FD3D57;
+    font-size: 50px;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  @media all and (max-width: 767px) {
+    font-size: 50px;
+    &-contour {
+      -webkit-text-stroke-width: 1px;
+      font-size: 25px;
+      bottom: -20px;
+    }
+  }
+}
 
 
 
