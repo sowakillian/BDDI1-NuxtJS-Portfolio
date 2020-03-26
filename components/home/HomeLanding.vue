@@ -3,9 +3,27 @@
     <span class="home-landing-scroll-incitator" v-bind:class="{ 'home-landing-scroll-incitator-visible': indexAnimations.otherAnimations }"></span>
     <span class="home-landing-contour" v-bind:class="{ 'home-landing-contour-visible': indexAnimations.otherAnimations }"></span>
     <div class="home-landing-socials" v-bind:class="{ 'home-landing-socials-visible': indexAnimations.otherAnimations }">
-
+      <a href="#"><img src="~/assets/images/mail.svg"></a>
+      <a href="#"><img src="~/assets/images/linkedin.svg"></a>
+      <a href="#"><img src="~/assets/images/behance-network.svg"></a>
     </div>
     <div class="home-landing-title">
+      <div class="home-landing-title-squares" v-bind:class="{ 'home-landing-title-squares-visible': indexAnimations.otherAnimations }">
+        <div class="home-landing-title-squares-square home-landing-title-squares-square-1">
+        </div>
+        <div class="home-landing-title-squares-square home-landing-title-squares-square-2">
+        </div>
+        <div class="home-landing-title-squares-square home-landing-title-squares-square-3">
+        </div>
+        <div class="home-landing-title-squares-square home-landing-title-squares-square-4">
+        </div>
+        <div class="home-landing-title-squares-square home-landing-title-squares-square-5">
+        </div>
+        <div class="home-landing-title-squares-square home-landing-title-squares-square-6">
+        </div>
+        <div class="home-landing-title-squares-square home-landing-title-squares-square-7">
+        </div>
+      </div>
       <div class="home-landing-title-invisible-overlay" v-bind:class="{ 'home-landing-title-invisible-overlay-hidden': indexAnimations.overlayHidden, 'home-landing-title-invisible-overlay-hidden-out': indexAnimations.otherAnimations,  }"></div>
       <div class="home-landing-title-h1">
         <h1 class="home-landing-title-h1-stroke" v-bind:class="{ 'home-landing-title-h1-stroke-visible': indexAnimations.titleVisible }">KILLIAN SOWA</h1>
@@ -18,8 +36,53 @@
 
 <script>
   import { mapState } from 'vuex';
+  let currentX = '';
+  let currentY = '';
+  let movementConstant = .0150;
+
+
   export default {
       computed: mapState(['indexAnimations']),
+
+      methods: {
+          putParallax (e) {
+              console.warn('mouseMoving');
+              const allSquares = document.querySelectorAll('.home-landing-title-squares-square');
+              if(currentX === '') currentX = e.pageX;
+
+              var xdiff = e.pageX - currentX;
+              console.warn(xdiff)
+              currentX = e.pageX;
+              if(currentY === '') currentY = e.pageY;
+              var ydiff = e.pageY - currentY;
+              currentY = e.pageY;
+
+              allSquares.forEach((el, i) => {
+                  let movement = (i + 4) * (xdiff * movementConstant);
+                  let movementy = (i + 4) * (ydiff * movementConstant);
+                  console.warn(el.style);
+                  let newX = el.offsetLeft + movement;
+                  let newY = el.offsetTop + movementy;
+                  console.warn('newX', newX, 'newY', newY);
+                  console.warn('movement', movement, 'movementy', movementy);
+                  el.style.left = newX+'px';
+                  console.warn(el.style.left);
+                  el.style.top = newY+'px';
+                  console.warn(el.style.top);
+              })
+          }
+      },
+
+      created () {
+          if (process.browser) {
+              //window.addEventListener('mousemove', e => this.putParallax(e));
+          }
+      },
+      destroyed () {
+          if (process.browser) {
+              //window.removeEventListener('mousemove', e => this.putParallax(e));
+          }
+      }
   }
 
 </script>
@@ -50,7 +113,7 @@
      border: 2px solid #FD3D57;
      opacity: 0;
      pointer-events: none;
-     transition: all 2s ease;
+     transition: all 4s ease;
 
   &-visible {
      opacity: 0.6;
@@ -92,6 +155,71 @@
      text-align: center;
      width: 880px;
      position: relative;
+
+    &-squares {
+      height: 328px;
+      width: 70%;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      opacity: 0;
+      transition: all 4s ease;
+
+
+      &-visible {
+        opacity: 1;
+      }
+
+      &-square {
+        height: 328px;
+        width: 100%;
+        position: absolute;
+        border: 2px solid #FD3D57;
+
+        &-1 {
+          opacity: 0.4;
+          left: 0;
+          top: 0;
+        }
+
+        &-2 {
+          left: -25px;
+          bottom: -25px;
+          opacity: 0.30;
+        }
+
+        &-3 {
+          left: -50px;
+          bottom: -50px;
+          opacity: 0.18;
+        }
+
+        &-4 {
+          left: -75px;
+          bottom: -75px;
+          opacity: 0.12;
+        }
+
+        &-5 {
+          left: -100px;
+          bottom: -100px;
+          opacity: 0.07;
+        }
+
+        &-6 {
+          left: -125px;
+          bottom: -125px;
+          opacity: 0.04;
+        }
+
+        &-7 {
+          left: -150px;
+          bottom: -150px;
+          opacity: 0.02;
+        }
+      }
+    }
 
   &-invisible-overlay {
      background-color: #0B0045;
@@ -157,13 +285,13 @@
      -webkit-text-stroke-color: #FD3D57;
      overflow: hidden;
      height: 30px;
-     transition: all 2s ease;
+     transition: all 4s ease;
      z-index: 12;
      position: relative;
 
   &-text {
      transform: translateY(-32px);
-     transition: all 2s ease;
+     transition: all 4s ease;
      opacity: 0;
 
 
@@ -184,7 +312,7 @@
      transform: translate(-50%, 0px);
      background-color: white;
      opacity: 0;
-     transition: all 2s ease;
+     transition: all 4s ease;
 
   &-visible {
      bottom: -90px;
