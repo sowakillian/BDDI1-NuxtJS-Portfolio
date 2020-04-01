@@ -1,7 +1,7 @@
 <template>
   <div class="hb-menu">
     <nav role="navigation">
-      <div class="hb-menu-button">
+      <div class="hb-menu-button" @click="toggleMenu()">
         <input class="hb-menu-button-checkbox" type="checkbox"/>
         <span></span>
         <span></span>
@@ -19,10 +19,47 @@
 
 <script>
 
+    import { gsap } from 'gsap'
+
+    const myTimeline = gsap.timeline();
+    const myTimelineReversed = gsap.timeline();
+    let isMenuActive = false;
+
   export default {
+
+
+
       methods: {
 
+        toggleMenu() {
+            const linksMenu = document.querySelector('.hb-menu-links');
+            const linkMenu1 = document.querySelector('.hb-menu-links li:nth-of-type(1)');
+            const linkMenu2 = document.querySelector('.hb-menu-links li:nth-of-type(2)');
+            const linkMenu3 = document.querySelector('.hb-menu-links li:nth-of-type(3)');
 
+            console.warn('isMenuActive', isMenuActive);
+            if (!isMenuActive) {
+                console.warn(myTimeline, 'menupasactive');
+                myTimeline
+                    .to(linksMenu, {y: 0, duration: 0.6})
+                    .to(linkMenu1, {opacity: 1, duration: 0.4} )
+                    .to(linkMenu2, {opacity: 1, duration: 0.4} )
+                    .to(linkMenu3, {opacity: 1, duration: 0.4} );
+            } else {
+                myTimelineReversed
+                    .to(linkMenu3, {opacity: 0, duration: 0.4} )
+                    .to(linkMenu2, {opacity: 0, duration: 0.4} )
+                    .to(linkMenu1, {opacity: 0, duration: 0.4} )
+                    .to(linksMenu, {y: '100%', duration: 0.6});
+            }
+
+            isMenuActive = !isMenuActive;
+        },
+
+        openMenu() {
+            console.warn('test');
+
+        }
       },
 
   }
@@ -44,6 +81,7 @@
       color: white;
       font-size: 80px;
       letter-spacing: 10px;
+      text-decoration: none;
       transition: all 0.4S ease;
 
       li {

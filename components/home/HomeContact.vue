@@ -21,8 +21,8 @@
             SOCIALS
           </p>
           <ul class="contact-content-item-list">
-            <li class="contact-content-item-list__item">Behance</li>
-            <li class="contact-content-item-list__item">Linkedin</li>
+            <li class="contact-content-item-list__item" onclick="alert('I don\'t have Behance, but it\'s cool to have this logo :)')">Behance</li>
+            <li class="contact-content-item-list__item"><a href="https://www.linkedin.com/in/killian-sowa/">Linkedin</a></li>
           </ul>
         </div>
 
@@ -36,7 +36,7 @@
           </ul>
         </div>
       </div>
-      <div class="contact-footer">KILLIAN SOWA</div>
+      <div class="contact-footer"><p>KILLIAN SOWA</p><p class="contact-footer-little">Design by Léa Pradel</p></div>
     </div>
 
   </section>
@@ -86,6 +86,12 @@
      text-align: center;
      padding-bottom: 40px;
      display: block;
+
+    &-little {
+      font-size: 16px;
+      margin-top: 10px;
+      font-family: 'Roboto-Regular';
+    }
    }
 
   @media all and (max-width: 1280px) {

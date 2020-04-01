@@ -39,11 +39,12 @@ body {
   font-family: 'IntegralCF', sans-serif;
   font-size: 100px;
   //cursor: none;
-
-
-
 }
 
+a, a:visited {
+  text-decoration: none;
+  color: white;
+}
 
 .wrap {
   margin: 0 140px;

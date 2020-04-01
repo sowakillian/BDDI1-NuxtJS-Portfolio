@@ -3,9 +3,9 @@
     <span class="home-landing-scroll-incitator" v-bind:class="{ 'home-landing-scroll-incitator-visible': indexAnimations.otherAnimations }"></span>
     <span class="home-landing-contour" v-bind:class="{ 'home-landing-contour-visible': indexAnimations.otherAnimations }"></span>
     <div class="home-landing-socials" v-bind:class="{ 'home-landing-socials-visible': indexAnimations.otherAnimations }">
-      <a href="#"><img src="~/assets/images/mail.svg"></a>
-      <a href="#"><img src="~/assets/images/linkedin.svg"></a>
-      <a href="#"><img src="~/assets/images/behance-network.svg"></a>
+      <a href="mailto:killian.sowa@m6.fr"><img src="~/assets/images/mail.svg"></a>
+      <a href="https://www.linkedin.com/in/killian-sowa/" target="_blank"><img src="~/assets/images/linkedin.svg"></a>
+      <a href="#" onclick="alert('I don\'t have Behance, but it\'s cool to have this logo :)')"><img src="~/assets/images/behance-network.svg"></a>
     </div>
     <div class="home-landing-title">
       <div class="home-landing-title-squares" v-bind:class="{ 'home-landing-title-squares-visible': indexAnimations.otherAnimations }">
@@ -324,8 +324,16 @@
   &-socials {
     width: 50px;
   }
+
+
   &-title {
      max-width: 90%;
+    &-squares {
+      display: none;
+    }
+    &-h1 {
+      height: 70px;
+    }
     h1 {
       font-size: 70px;
     }
@@ -336,7 +344,40 @@
   }
   }
 
+    @media all and (max-width: 767px) {
+
+      &-title {
+        h1 {
+          font-size: 50px;
+        }
+        &-h1 {
+          height: 50px;
+          &-stroke {
+
+          }
+        }
+        &-h2 {
+          font-size: 18px;
+          -webkit-text-stroke-width: 1px;
+        }
+      }
+    }
+
   @media all and (max-width: 600px) {
+    &-title {
+      h1 {
+        font-size: 30px;
+      }
+      &-h1 {
+        height: 30px;
+        &-stroke {
+          display: none;
+        }
+      }
+      h2 {
+        font-size: 14px;
+      }
+    }
   &-socials {
     position: absolute;
     width: 44px;
@@ -346,11 +387,10 @@
   @media all and (max-width: 480px) {
   &-title {
     h1 {
-      font-size: 50px;
     }
 
     h2 {
-      font-size: 20px;
+      height: auto;
       -webkit-text-stroke-width: 1px;
     }
   }

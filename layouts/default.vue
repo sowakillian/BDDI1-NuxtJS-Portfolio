@@ -9,6 +9,12 @@
   import GlobalNav from '~/components/global/GlobalNav.vue';
 
   export default {
+      head () {
+          return {
+              titleTemplate: `Portfolio - Sowa Killian`
+          }
+      },
+
       components: {
           GlobalNav
       }
