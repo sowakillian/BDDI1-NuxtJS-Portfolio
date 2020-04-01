@@ -1,10 +1,9 @@
 <template>
   <section class="project-presentation">
     <div class="project-presentation-description">
-      <span class="project-presentation-description__title">DROP.</span>
-      <p class="project-presentation-description__typeAndDate">2018 - #HTML #CSS #PHP #JS #MANAGEMENT</p>
-      <p class="project-presentation-description__text">Drop est une marque que j'ai développé pendant l'été de l'année 2017. C'est sûrement mon projet le plus abouti à ce jour. Ce projet a fait appel à de nombreuses compétences différentes : création d'une plateforme de e-commerce, gestion d'équipe (photographe, vidéaste, communicant, modèles), développement web (Javascript, PHP).</p>
-      <a target="_blank" href="https://www.dropclothes.com" class="project-presentation-description__link">VISIT THE WEBSITE</a>
+      <span class="project-presentation-description__title">{{ title2 }}</span>
+      <p class="project-presentation-description__typeAndDate">{{ hashtags }}</p>
+      <p class="project-presentation-description__text">{{ desc }}</p>
     </div>
     <div class="project-presentation-mockup">
 
@@ -17,7 +16,9 @@
 
     export default {
         props: [
-            'title',
+            'title2',
+            'hashtags',
+            'desc',
         ],
 
     }
@@ -44,6 +45,7 @@
     }
 
     &-description {
+      text-align: left;
       &__title {
         font-family: IntegralCF;
         font-size: 100px;

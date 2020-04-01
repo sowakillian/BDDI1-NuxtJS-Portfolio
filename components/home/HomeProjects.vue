@@ -13,10 +13,10 @@
             <span class="project-selection-title">
             DROP.
           </span>
-            <a href="/drop#project-header" class="project-selection-buttonMore">
+            <nuxt-link to="/projects/dropclothes" class="project-selection-buttonMore">
               <span class="project-selection-buttonMore-strokeVertical"></span>
               <span class="project-selection-buttonMore-strokeHorizontal"></span>
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -33,10 +33,10 @@
             <span class="project-selection-title">
             FRAMMI
           </span>
-            <a href="/drop#project-header" class="project-selection-buttonMore">
+            <nuxt-link to="/projects/frammi" class="project-selection-buttonMore">
               <span class="project-selection-buttonMore-strokeVertical"></span>
               <span class="project-selection-buttonMore-strokeHorizontal"></span>
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -53,10 +53,10 @@
             <span class="project-selection-title">
             TWEETOP
           </span>
-            <a href="/drop#project-header" class="project-selection-buttonMore">
+            <nuxt-link to="/projects/tweetop" class="project-selection-buttonMore">
               <span class="project-selection-buttonMore-strokeVertical"></span>
               <span class="project-selection-buttonMore-strokeHorizontal"></span>
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -73,10 +73,10 @@
             <span class="project-selection-title">
             SACHA
           </span>
-            <a href="/drop#project-header" class="project-selection-buttonMore">
+            <nuxt-link to="/projects/sacha" class="project-selection-buttonMore">
               <span class="project-selection-buttonMore-strokeVertical"></span>
               <span class="project-selection-buttonMore-strokeHorizontal"></span>
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <section class="project-header" id="project-header">
     <span class="project-header-overlay"></span>
     <span class="home-landing-scroll-incitator"></span>
-    <span class="project-header-name">KILLIAN SOWA</span>
+    <span class="project-header-name"><nuxt-link to="/">KILLIAN SOWA</nuxt-link> </span>
     <h1 class="project-header-title">
       DROPCLOTHES
     </h1>
@@ -29,22 +29,6 @@
     background-size: cover;
     position: relative;
 
-    &-overlay {
-      background-color: #0B0045;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      opacity: 0;
-    }
-
-    &-name {
-      position: absolute;
-      left: 5%;
-      top: 75px;
-      font-size: 30px;
-      font-family: 'IntegralCF-Bold';
-      z-index: 5;
-    }
 
     &-title {
       z-index: 1;

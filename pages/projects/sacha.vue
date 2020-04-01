@@ -20,11 +20,11 @@
 
         data (){
             return {
-                title: "FRAMMI AWARDS",
-                background: "http://dropclothes.com/portfolio-killian/frammibg.jpg",
-                title2: "FRAMMI",
-                desc: "Frammi is a festival which rewards best realisations of students which studies works of multimedias and Internet. Audiovisual, communication, graphic design and programmation are judged and rewarded. I was the project manager and the front-end web developer for this project",
-                hashtags: "2019 - #HTML #CSS #JS"
+                title: "SACHA SMOOTHIES",
+                background: "http://dropclothes.com/portfolio-killian/background_drop.jpg",
+                title2: "SACHA",
+                desc: "sssssssss",
+                hashtags: "2020 - #DESIGN #SWIFT"
             }
         }
     }

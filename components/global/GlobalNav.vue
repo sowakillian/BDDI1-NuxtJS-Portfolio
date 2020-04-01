@@ -1,7 +1,7 @@
 <template>
-  <div class="hb-menu">
+  <div class="hb-menu" v-bind:class="{ 'hb-menu-visible': indexAnimations.otherAnimations }">
     <nav role="navigation">
-      <div class="hb-menu-button" @click="toggleMenu()">
+      <div class="hb-menu-button" @click="isMenuActive = !isMenuActive">
         <input class="hb-menu-button-checkbox" type="checkbox"/>
         <span></span>
         <span></span>
@@ -19,6 +19,7 @@
 
 <script>
 
+    import { mapState } from 'vuex';
     import { gsap } from 'gsap'
 
     const myTimeline = gsap.timeline();
@@ -27,7 +28,7 @@
 
   export default {
 
-
+      computed: mapState(['indexAnimations']),
 
       methods: {
 
@@ -66,6 +67,13 @@
 </script>
 <style lang="scss">
   .hb-menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 4s ease;
+    &-visible {
+      opacity: 1;
+      visibility: visible;
+    }
 
     &-links {
       height: 100vh;
@@ -83,6 +91,9 @@
       letter-spacing: 10px;
       text-decoration: none;
       transition: all 0.4S ease;
+      opacity: 0;
+
+
 
       li {
         margin-bottom: 50px;

@@ -1,8 +1,8 @@
 <template>
-  <section class="project-header" id="project-header">
+  <section class="project-header" id="project-header" :style="{ backgroundImage: `url('${background}')` }">
     <span class="project-header-overlay"></span>
     <span class="home-landing-scroll-incitator"></span>
-    <span class="project-header-name">KILLIAN SOWA</span>
+    <span class="project-header-name"><nuxt-link to="/">KILLIAN SOWA</nuxt-link></span>
     <h1 class="project-header-title">
       {{ title }}
     </h1>
@@ -15,6 +15,7 @@
     export default {
         props: [
             'title',
+            'background'
         ],
     }
 
@@ -26,12 +27,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: slategray;
+    background-color: green;
     background-size: cover;
     position: relative;
 
     &-overlay {
-      background-color: #0B0045;
+      background: linear-gradient(#160089, #0A0138);
       width: 100%;
       height: 100%;
       position: absolute;

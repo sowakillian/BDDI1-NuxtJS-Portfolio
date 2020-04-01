@@ -20,11 +20,11 @@
 
         data (){
             return {
-                title: "FRAMMI AWARDS",
-                background: "http://dropclothes.com/portfolio-killian/frammibg.jpg",
-                title2: "FRAMMI",
-                desc: "Frammi is a festival which rewards best realisations of students which studies works of multimedias and Internet. Audiovisual, communication, graphic design and programmation are judged and rewarded. I was the project manager and the front-end web developer for this project",
-                hashtags: "2019 - #HTML #CSS #JS"
+                title: "TWEETOP",
+                background: "http://dropclothes.com/portfolio-killian/twitterbg.png",
+                title2: "TWEETOP",
+                desc: "Tweetop is a back-end application which get on real-time the tweets on twitter and which send it to a client after having filtered it. I used principally NodeJS and websockets for this application and it was very interesting to connect on twitter API and undertstand how to use these API",
+                hashtags: "2020 - #NODEJS #BACKEND #SOCKETS"
             }
         }
     }

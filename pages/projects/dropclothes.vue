@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <project-header :title="title" />
-    <project-desc />
+    <project-header :title="title" :background="background" />
+    <project-desc :title2="title2" :hashtags="hashtags" :desc="desc" :video="video" :mockup="mockup"/>
     <project-next />
   </div>
 </template>
@@ -21,6 +21,10 @@
         data (){
             return {
                 title: "DROPCLOTHES",
+                background: "http://dropclothes.com/portfolio-killian/background_drop.jpg",
+                title2: "DROP.",
+                desc: "sssssssss",
+                hashtags: "2018 - #HTML #CSS #PHP #JS #MANAGEMENT"
             }
         }
     }
