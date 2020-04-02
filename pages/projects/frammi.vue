@@ -2,7 +2,7 @@
   <div class="container">
     <project-header :title="title" :background="background" />
     <project-desc :title2="title2" :hashtags="hashtags" :desc="desc" :video="video" :mockup="mockup"/>
-    <project-next />
+    <project-next :nextproject="nextproject" :nextprojecturl="nextprojecturl" :nextbackground="nextbackground"/>
   </div>
 </template>
 
@@ -24,7 +24,11 @@
                 background: "http://dropclothes.com/portfolio-killian/frammibg.jpg",
                 title2: "FRAMMI",
                 desc: "Frammi is a festival which rewards best realisations of students which studies works of multimedias and Internet. Audiovisual, communication, graphic design and programmation are judged and rewarded. I was the project manager and the front-end web developer for this project",
-                hashtags: "2019 - #HTML #CSS #JS"
+                hashtags: "2019 - #HTML #CSS #JS",
+                mockup: "http://dropclothes.com/portfolio-killian/mockuframmi.png",
+                nextproject:"TWEETOP",
+                nextprojecturl:"/projects/tweetop",
+                nextbackground: "http://dropclothes.com/portfolio-killian/twitterbg.png",
             }
         }
     }

@@ -2,7 +2,7 @@
   <div class="container">
     <project-header :title="title" :background="background" />
     <project-desc :title2="title2" :hashtags="hashtags" :desc="desc" :video="video" :mockup="mockup"/>
-    <project-next />
+    <project-next :nextproject="nextproject" :nextprojecturl="nextprojecturl" :nextbackground="nextbackground"/>
   </div>
 </template>
 
@@ -21,10 +21,14 @@
         data (){
             return {
                 title: "DROPCLOTHES",
-                background: "http://dropclothes.com/portfolio-killian/background_drop.jpg",
+                background: "http://sowakillian.fr/wp-content/uploads/2019/05/background_drop.jpg",
                 title2: "DROP.",
-                desc: "sssssssss",
-                hashtags: "2018 - #HTML #CSS #PHP #JS #MANAGEMENT"
+                desc: "I created DropClothes in 2017. DropClothes was an online wear brand. It is probably the most interesting project I have done in my life  : web programming, communication, e-commerce, stock management, team management, I worked with a team of 4 people and it was really a crazy experience !",
+                hashtags: "2018 - #HTML #CSS #PHP #JS #MANAGEMENT",
+                nextproject:"FRAMMI",
+                nextprojecturl:"/projects/frammi",
+                mockup: "http://sowakillian.fr/wp-content/uploads/2019/05/dropmockup_big-1.png",
+                nextbackground: "http://dropclothes.com/portfolio-killian/frammibg.jpg",
             }
         }
     }

@@ -6,7 +6,18 @@
       <p class="project-presentation-description__text">{{ desc }}</p>
     </div>
     <div class="project-presentation-mockup">
-
+      <div  class="project-presentation-mockup-frammi" v-if="mockup === 'http://dropclothes.com/portfolio-killian/mockuframmi.png'">
+        <img :src="mockup">
+      </div>
+      <div  class="project-presentation-mockup-drop" v-if="mockup === 'http://sowakillian.fr/wp-content/uploads/2019/05/dropmockup_big-1.png'">
+        <img :src="mockup">
+      </div>
+      <div  class="project-presentation-mockup-nodeapi" v-if="mockup === 'http://dropclothes.com/portfolio-killian/nodeapi.jpg'">
+        <img :src="mockup">
+      </div>
+      <div  class="project-presentation-mockup-sacha" v-if="mockup === 'http://dropclothes.com/portfolio-killian/sachamockup.png'">
+        <img :src="mockup">
+      </div>
     </div>
   </section>
 </template>
@@ -19,6 +30,7 @@
             'title2',
             'hashtags',
             'desc',
+            'mockup'
         ],
 
     }
@@ -26,10 +38,11 @@
 </script>
 <style lang="scss">
   .project-presentation {
-    padding: 150px 5%;
+    padding: 150px 65px;
     display: flex;
     font-family: 'Roboto-Light';
     font-size: 20px;
+    margin-bottom: 90px;
 
     & > * {
       width: 50%;
@@ -41,6 +54,38 @@
         max-width: 80%;
         height: auto;
         margin: 0 auto;
+      }
+
+      &-sacha {
+        display: flex;
+        justify-content: flex-end;
+        img {
+          max-width: 100%;
+        }
+      }
+
+      &-nodeapi {
+        display: flex;
+        justify-content: flex-end;
+        img {
+          max-width: 80%;
+        }
+      }
+
+      &-drop {
+        display: flex;
+        justify-content: flex-end;
+        img {
+          max-width: 100%;
+        }
+      }
+      &-frammi {
+        position: relative;
+        img{
+          right: -65px;
+          top: -95px;
+          position: absolute;
+        }
       }
     }
 
@@ -72,8 +117,13 @@
 
     @media all and (max-width: 980px) {
       flex-wrap: wrap;
+margin-bottom: 20px;
+      padding: 50px;
 
       &-mockup {
+        &-frammi {
+          display: none;
+        }
         video {
           max-width: 100%;
         }

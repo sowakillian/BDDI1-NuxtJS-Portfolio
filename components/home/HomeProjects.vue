@@ -8,7 +8,7 @@
           <span class="project-selection-numberLittle">
             01
             <span class="project-selection-numberLittle-underline"></span>
-            <span class="project-selection-numberLittle-contour">/05</span>
+            <span class="project-selection-numberLittle-contour">/04</span>
           </span>
             <span class="project-selection-title">
             DROP.
@@ -28,7 +28,7 @@
           <span class="project-selection-numberLittle">
             02
             <span class="project-selection-numberLittle-underline"></span>
-            <span class="project-selection-numberLittle-contour">/05</span>
+            <span class="project-selection-numberLittle-contour">/04</span>
           </span>
             <span class="project-selection-title">
             FRAMMI
@@ -48,7 +48,7 @@
           <span class="project-selection-numberLittle">
             03
             <span class="project-selection-numberLittle-underline"></span>
-            <span class="project-selection-numberLittle-contour">/05</span>
+            <span class="project-selection-numberLittle-contour">/04</span>
           </span>
             <span class="project-selection-title">
             TWEETOP
@@ -68,7 +68,7 @@
           <span class="project-selection-numberLittle">
             04
             <span class="project-selection-numberLittle-underline"></span>
-            <span class="project-selection-numberLittle-contour">/05</span>
+            <span class="project-selection-numberLittle-contour">/04</span>
           </span>
             <span class="project-selection-title">
             SACHA

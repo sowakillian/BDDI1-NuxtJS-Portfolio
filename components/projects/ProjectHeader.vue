@@ -3,7 +3,7 @@
     <span class="project-header-overlay"></span>
     <span class="home-landing-scroll-incitator"></span>
     <span class="project-header-name"><nuxt-link to="/">KILLIAN SOWA</nuxt-link></span>
-    <h1 class="project-header-title">
+    <h1 class="project-header-title" v-parallax="0.1">
       {{ title }}
     </h1>
   </section>
@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    background-color: slategray;
     background-size: cover;
     position: relative;
 
@@ -36,7 +36,7 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      opacity: 0;
+      opacity: 0.2;
     }
 
     &-name {

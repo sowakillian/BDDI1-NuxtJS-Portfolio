@@ -2,7 +2,7 @@
   <div class="container">
     <project-header :title="title" :background="background" />
     <project-desc :title2="title2" :hashtags="hashtags" :desc="desc" :video="video" :mockup="mockup"/>
-    <project-next />
+    <project-next :nextproject="nextproject" :nextprojecturl="nextprojecturl" :nextbackground="nextbackground"/>
   </div>
 </template>
 
@@ -24,7 +24,11 @@
                 background: "http://dropclothes.com/portfolio-killian/twitterbg.png",
                 title2: "TWEETOP",
                 desc: "Tweetop is a back-end application which get on real-time the tweets on twitter and which send it to a client after having filtered it. I used principally NodeJS and websockets for this application and it was very interesting to connect on twitter API and undertstand how to use these API",
-                hashtags: "2020 - #NODEJS #BACKEND #SOCKETS"
+                hashtags: "2020 - #NODEJS #BACKEND #SOCKETS",
+                nextproject:"SACHA",
+                mockup: "http://dropclothes.com/portfolio-killian/nodeapi.jpg",
+                nextprojecturl:"/projects/sacha",
+                nextbackground:"https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/a/f/fafa4b665d_114351_smoothies-fruits-legumes-sante.jpg"
             }
         }
     }

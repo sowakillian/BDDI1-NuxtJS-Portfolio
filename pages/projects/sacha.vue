@@ -2,7 +2,7 @@
   <div class="container">
     <project-header :title="title" :background="background" />
     <project-desc :title2="title2" :hashtags="hashtags" :desc="desc" :video="video" :mockup="mockup"/>
-    <project-next />
+    <project-next :nextproject="nextproject" :nextbackground="nextbackground"/>
   </div>
 </template>
 
@@ -21,10 +21,12 @@
         data (){
             return {
                 title: "SACHA SMOOTHIES",
-                background: "http://dropclothes.com/portfolio-killian/background_drop.jpg",
+                background: "https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/a/f/fafa4b665d_114351_smoothies-fruits-legumes-sante.jpg",
                 title2: "SACHA",
-                desc: "sssssssss",
-                hashtags: "2020 - #DESIGN #SWIFT"
+                desc: "Sacha Smoothie is a personnal project. The goal ? Learn how to do mobile programming with Swift. To learn Swift I created the design of this fake application to could program it with Swift after. It is'nt easy to work on a fake project but it was really cool !",
+                hashtags: "2020 - #DESIGN #SWIFT",
+                mockup: "http://dropclothes.com/portfolio-killian/sachamockup.png",
+                nextbackground: "http://sowakillian.fr/wp-content/uploads/2019/05/background_drop.jpg",
             }
         }
     }
