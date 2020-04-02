@@ -1,5 +1,5 @@
 <template>
-  <section class="project-selection">
+  <section class="project-selection" id="works">
     <div class="project-selection-slide-container">
       <div class="project-selection-slide-container-slide">
         <span class="project-selection-numberBig">01</span>

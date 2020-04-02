@@ -146,6 +146,8 @@
   }
 
   img {
+    max-width: 80%;
+    margin: 0 auto;
     display: block;
   }
   }

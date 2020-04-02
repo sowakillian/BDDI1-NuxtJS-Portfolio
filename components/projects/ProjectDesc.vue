@@ -42,7 +42,8 @@
     display: flex;
     font-family: 'Roboto-Light';
     font-size: 20px;
-    margin-bottom: 90px;
+    max-width: 1400px;
+    margin: 0 auto 90px auto;
 
     & > * {
       width: 50%;

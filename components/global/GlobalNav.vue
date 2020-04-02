@@ -3,16 +3,16 @@
     <nav role="navigation">
       <div class="hb-menu-button" @click="isMenuActive = !isMenuActive">
         <input class="hb-menu-button-checkbox" type="checkbox"/>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span v-bind:class="{'hb-menu-button-span1-active hb-menu-button-span-active':(isMenuActive)}"></span>
+        <span v-bind:class="{'hb-menu-button-span2-active hb-menu-button-span-active':(isMenuActive)}"></span>
+        <span v-bind:class="{'hb-menu-button-span3-active hb-menu-button-span-active':(isMenuActive)}"></span>
       </div>
     </nav>
 
-    <ul id="menu" class="hb-menu-links hb-menu-links-visible">
-      <li><a href="/works" class="link">WORKS</a></li>
-      <li><a href="#about" class="link">ABOUT</a></li>
-      <li><a href="#contact" class="link">CONTACT</a></li>
+    <ul id="menu"  v-bind:class="{'hb-menu-links-active':(isMenuActive)}" class="hb-menu-links hb-menu-links-visible">
+      <li @click="isMenuActive = !isMenuActive"><nuxt-link :to="{ path: '/',hash:'#works'}"  class="link">WORKS</nuxt-link></li>
+      <li @click="isMenuActive = !isMenuActive"><nuxt-link :to="{ path: '/',hash:'#about'}" class="link">ABOUT</nuxt-link></li>
+      <li @click="isMenuActive = !isMenuActive"><nuxt-link :to="{ path: '/',hash:'#contact'}" class="link">CONTACT</nuxt-link></li>
     </ul>
   </div>
 </template>
@@ -29,6 +29,12 @@
   export default {
 
       computed: mapState(['indexAnimations']),
+
+      data (){
+          return {
+              isMenuActive: false,
+          }
+      },
 
       methods: {
 
@@ -90,14 +96,17 @@
       font-size: 80px;
       letter-spacing: 10px;
       text-decoration: none;
-      transition: all 0.4S ease;
-      opacity: 0;
+      transition: all 1.5s ease;
+      opacity: 1;
+
+      &-active {
+        transform:translate(0,0)
+      }
 
 
 
       li {
         margin-bottom: 50px;
-        opacity: 0;
       }
 
       &:last-of-type {
@@ -126,7 +135,14 @@
       -webkit-user-select: none;
       user-select: none;
 
+      &:hover {
+        cursor: pointer;
+      }
+
       a {
+        &:hover {
+          cursor: pointer;
+        }
         text-decoration: none;
         color: #232323;
         transition: color 0.3s ease;
@@ -137,6 +153,9 @@
       }
 
       input {
+        &:hover {
+          cursor: pointer;
+        }
         display: block;
         width: 50px;
         height: 32px;
@@ -144,10 +163,27 @@
         opacity: 0; /* hide this */
         z-index: 2; /* and place it over the hamburger */
         -webkit-touch-callout: none;
-        cursor: none;
+      }
+
+      &-span-active {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+      }
+
+      &-span2-active {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+      }
+
+      &-span3-active {
+        transform: rotate(-45deg) translate(0, -2px);
       }
 
       span {
+        &:hover {
+          cursor: pointer;
+        }
         display: block;
         width: 50px;
         height: 4px;
@@ -181,33 +217,6 @@
       transform-origin: 0% 100%;
     }
 
-    .hb-menu-button input:checked ~ span
-    {
-      opacity: 1;
-      transform: rotate(45deg) translate(-2px, -1px);
-    }
-
-    /*
-     * But let's hide the middle one.
-     */
-    .hb-menu-button input:checked ~ span:nth-of-type(2)
-    {
-      opacity: 0;
-      transform: rotate(0deg) scale(0.2, 0.2);
-    }
-
-    /*
-     * Ohyeah and the last one should go the other direction
-     */
-    .hb-menu-button input:checked ~ span:nth-of-type(3)
-    {
-      transform: rotate(-45deg) translate(0, -1px);
-    }
-
-    .hb-menu-button input:checked ~ ul
-    {
-      transform: none;
-    }
   }
 
 </style>
