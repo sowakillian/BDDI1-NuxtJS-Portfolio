@@ -25,8 +25,8 @@
                 title2: "DROP.",
                 desc: "I created DropClothes in 2017. DropClothes was an online wear brand. It is probably the most interesting project I have done in my life  : web programming, communication, e-commerce, stock management, team management, I worked with a team of 4 people and it was really a crazy experience !",
                 hashtags: "2018 - #HTML #CSS #PHP #JS #MANAGEMENT",
-                nextproject:"FRAMMI",
-                nextprojecturl:"/projects/frammi",
+                nextproject:"POLO",
+                nextprojecturl:"/projects/polo",
                 mockup: "http://sowakillian.fr/wp-content/uploads/2019/05/dropmockup_big-1.png",
                 nextbackground: "http://dropclothes.com/portfolio-killian/frammibg.jpg",
             }

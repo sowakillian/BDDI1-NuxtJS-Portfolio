@@ -24,18 +24,20 @@
         <div class="home-landing-title-squares-square home-landing-title-squares-square-7">
         </div>
       </div>
+      <div class="home-landing-title-quote">KILLIAN SOWA<br />CRAZY DEVELOPER</div>
       <div class="home-landing-title-invisible-overlay" v-bind:class="{ 'home-landing-title-invisible-overlay-hidden': indexAnimations.overlayHidden, 'home-landing-title-invisible-overlay-hidden-out': indexAnimations.otherAnimations,  }"></div>
       <div class="home-landing-title-h1">
-        <h1 class="home-landing-title-h1-stroke" v-bind:class="{ 'home-landing-title-h1-stroke-visible': indexAnimations.titleVisible }">KILLIAN SOWA</h1>
-        <h1 class="home-landing-title-h1-full" v-bind:class="{ 'home-landing-title-h1-full-visible': indexAnimations.titleVisible }">KILLIAN SOWA</h1>
+        <h1 class="home-landing-title-h1-stroke" v-bind:class="{ 'home-landing-title-h1-stroke-visible': indexAnimations.titleVisible }">Welcome home,</h1>
+        <h1 class="home-landing-title-h1-full" v-bind:class="{ 'home-landing-title-h1-full-visible': indexAnimations.titleVisible }">Welcome home,</h1>
       </div>
-      <div class="home-landing-title-h2"><h2 class="home-landing-title-h2-text" v-bind:class="{ 'home-landing-title-h2-text-visible': indexAnimations.otherAnimations }">INTERACTIVE DEVELOPER</h2></div>
+      <div class="home-landing-title-h2"><h2 class="home-landing-title-h2-text" v-bind:class="{ 'home-landing-title-h2-text-visible': indexAnimations.otherAnimations }">I'm Killian, your crazy developer.</h2></div>
     </div>
   </section>
 </template>
 
 <script>
   import { mapState } from 'vuex';
+  import {ScrollScene} from "scrollscene";
   let currentX = '';
   let currentY = '';
   let movementConstant = .0150;
@@ -44,7 +46,27 @@
   export default {
       computed: mapState(['indexAnimations']),
 
+      mounted() {
+        this.changeBgColor();
+      },
+
       methods: {
+        changeBgColor() {
+          const homeLanding = document.querySelector('.home-landing');
+
+          const scrollScene = new ScrollScene({
+            triggerElement: homeLanding,
+            triggerHook: "0.2",
+            duration: "0",
+          });
+
+          scrollScene.Scene.on('enter', () => {
+            document.body.style.background = "#FD3D57";
+          });
+
+
+        },
+
           putParallax (e) {
               console.warn('mouseMoving');
               const allSquares = document.querySelectorAll('.home-landing-title-squares-square');
@@ -94,7 +116,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: #0B0045;
+    background-color: #FD3D57;
     transition: all 2s ease;
 
   &-backgroundAdded {
@@ -110,18 +132,18 @@
      left: 50%;
      z-index: 12;
      transform: translate(-50%, -50%);
-     border: 2px solid #FD3D57;
+     border: 2px solid white;
      opacity: 0;
      pointer-events: none;
      transition: all 4s ease;
 
   &-visible {
-     opacity: 0.6;
+     opacity: 0;
    }
   }
 
   &-socials {
-     background-color: #FD3D57;
+     background-color: white;
      display: flex;
      flex-direction: column;
      position: fixed;
@@ -157,6 +179,20 @@
      text-align: center;
      width: 880px;
      position: relative;
+      font-weight: 800;
+    font-family: 'MadeTommy-Black';
+
+    &-quote {
+      font-family: "IntegralCF-Bold";
+      font-size: 200px;
+      opacity: 0.1;
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      white-space: nowrap;
+    }
 
     &-squares {
       height: 328px;
@@ -167,6 +203,7 @@
       top: 50%;
       opacity: 0;
       transition: all 4s ease;
+      display: none;
 
 
       &-visible {
@@ -224,7 +261,7 @@
     }
 
   &-invisible-overlay {
-     background-color: #0B0045;
+     background-color: #FD3D57;
      width: 100%;
      height: 200px;
      position: absolute;
@@ -243,8 +280,7 @@
   }
 
   &-h1 {
-     letter-spacing: 5px;
-     font-size: 100px;
+     font-size: 90px;
      position: relative;
      height: 100px;
 
@@ -280,13 +316,10 @@
   }
 
   &-h2 {
-     font-size: 30px;
-     letter-spacing: 5px;
-     color: rgba(0,0,0,0);
-     -webkit-text-stroke-width: 2px;
-     -webkit-text-stroke-color: #FD3D57;
+     font-size: 50px;
+     color: white;
      overflow: hidden;
-     height: 30px;
+     height: 60px;
      transition: all 4s ease;
      z-index: 12;
      position: relative;
@@ -295,7 +328,6 @@
      transform: translateY(-32px);
      transition: all 4s ease;
      opacity: 0;
-
 
   &-visible {
      transform: translate(0);

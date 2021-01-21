@@ -31,7 +31,7 @@
             <span class="project-selection-numberLittle-contour">/04</span>
           </span>
             <span class="project-selection-title">
-            FRAMMI
+            POLO
           </span>
             <nuxt-link to="/projects/frammi" class="project-selection-buttonMore">
               <span class="project-selection-buttonMore-strokeVertical"></span>

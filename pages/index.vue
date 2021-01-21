@@ -1,17 +1,20 @@
 <template>
   <div class="container">
       <home-landing />
-      <home-projects />
-      <home-about />
-      <home-contact />
+      <home-create />
+      <home-brands />
+      <home-contact2 />
   </div>
 </template>
 
 <script>
-import HomeLanding from '~/components/home/HomeLanding.vue'
-import HomeProjects from '~/components/home/HomeProjects.vue'
-import HomeAbout from '~/components/home/HomeAbout.vue'
-import HomeContact from '~/components/home/HomeContact.vue'
+import HomeLanding from '~/components/home/HomeLanding.vue';
+import HomeCreate from '~/components/home/HomeCreate';
+import HomeBrands from '~/components/home/HomeBrands';
+import HomeContact2 from "~/components/home/HomeContact2";
+import HomeProjects from '~/components/home/HomeProjects.vue';
+import HomeAbout from '~/components/home/HomeAbout.vue';
+import HomeContact from '~/components/home/HomeContact.vue';
 
 let titleVisible;
 let overlayHidden;
@@ -20,6 +23,9 @@ let otherAnimations;
 export default {
   components: {
     HomeLanding,
+    HomeCreate,
+    HomeBrands,
+    HomeContact2,
     HomeProjects,
     HomeAbout,
     HomeContact,

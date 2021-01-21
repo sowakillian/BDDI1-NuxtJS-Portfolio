@@ -20,11 +20,11 @@
 
         data (){
             return {
-                title: "FRAMMI AWARDS",
+                title: "POLO",
                 background: "http://dropclothes.com/portfolio-killian/frammibg.jpg",
-                title2: "FRAMMI",
-                desc: "Frammi is a festival which rewards best realisations of students which studies works of multimedias and Internet. Audiovisual, communication, graphic design and programmation are judged and rewarded. I was the project manager and the front-end web developer for this project",
-                hashtags: "2019 - #HTML #CSS #JS",
+                title2: "POLO",
+                desc: "Polo a mobile application developped for iOS. With Polo, you could create a surprised travel from A to Z. I was fullstack developer on this project and we was 2 people working on it. We used Firebase for the back-end side and Swift for the front-end side",
+                hashtags: "2019 - #SWIFT #FULLSTACK #FIREBASE",
                 mockup: "http://dropclothes.com/portfolio-killian/mockuframmi.png",
                 nextproject:"TWEETOP",
                 nextprojecturl:"/projects/tweetop",

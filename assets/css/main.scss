@@ -6,6 +6,34 @@
 }
 
 @font-face {
+  font-family: 'MadeTommy-Regular';
+  src: url('../fonts/MadeTommy-Regular.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MadeTommy-Medium';
+  src: url('../fonts/MadeTommy-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MadeTommy-Bold';
+  src: url('../fonts/MadeTommy-Bold.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MadeTommy-Black';
+  src: url('../fonts/MadeTommy-Black.otf');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'IntegralCF-Regular';
   src: url('../fonts/IntegralCF-Regular.otf');
   font-weight: 600;
@@ -33,11 +61,16 @@
   font-style: normal;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background: radial-gradient(#160089, #0B0045) fixed;
+  background-color: #FD3D57;
+  transition: background-color 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
   color: white;
-  font-family: 'IntegralCF', sans-serif;
-  font-size: 100px;
+  font-family: 'MadeTommy-Regular', sans-serif;
+  font-size: 14px;
   //cursor: none;
 }
 
@@ -62,7 +95,8 @@ a, a:visited {
 }
 
 .wrap {
-  margin: 0 140px;
+  margin: 0 auto;
+  max-width: 1280px;
 }
 
 @media all and (max-width: 980px) {
@@ -78,14 +112,40 @@ a, a:visited {
 }
 
 .section-title {
-  font-size: 100px;
   position: relative;
   display: block;
-  width: fit-content;
-  margin-bottom: 90px;
+  margin: 0 auto 9rem auto;
+  font-family: "MadeTommy-Black";
+
+  &-quote {
+    font-family: "IntegralCF-Bold";
+    font-size: 190px;
+    opacity: 0.06;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .darkTitle {
+    color: black;
+  }
+
+  .whiteTitle {
+    color: white;
+  }
 
   &-mainTitle {
+    font-size: 80px;
+    text-align: center;
 
+
+
+    span {
+      color: #FD3D57;
+    }
   }
 
   &-contour {
