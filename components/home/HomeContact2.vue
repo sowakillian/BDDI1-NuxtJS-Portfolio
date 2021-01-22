@@ -11,11 +11,11 @@
           <div class="contact2-form-infos">
             <div class="contact2-form-name">
               <label for="name">Enter your name: </label>
-              <input placeholder="Your firstname" type="name" name="firstname" id="name" required>
+              <input placeholder="Your beautiful name*" type="name" name="firstname" id="name" required>
             </div>
             <div class="contact2-form-email">
               <label for="email">Enter your email: </label>
-              <input placeholder="Your email" type="email" name="email" id="email" required>
+              <input placeholder="Your email*" type="email" name="email" id="email" required>
             </div>
           </div>
 
@@ -23,8 +23,8 @@
             <textarea placeholder="Why do you need a crazy developer ?*"></textarea>
           </div>
 
-          <div class="form-example">
-            <input type="submit" value="Subscribe!">
+          <div class="contact2-form-submit">
+            <input type="submit" value="Send the message">
           </div>
         </form>
     </div>
@@ -53,14 +53,10 @@ export default {
 
       scrollScene.Scene.on('enter', () => {
         document.body.style.background = "#FD3D57";
-        sectionTitle.classList.add('whiteTitle');
-        sectionTitle.classList.remove('darkTitle');
       });
 
       scrollScene.Scene.on('leave', () => {
-        document.body.style.background = "white";
-        sectionTitle.classList.add('darkTitle');
-        sectionTitle.classList.remove('whiteTitle');
+        document.body.style.background = "black";
       });
     },
   }
@@ -69,12 +65,18 @@ export default {
 
 <style lang="scss">
 .contact2 {
+  display: none;
   .wrap {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
+  }
+
+  .section-title-quote {
+    color: #0A0138;
+    opacity: 0.09;
   }
 
   &-form {
@@ -127,6 +129,23 @@ export default {
           color: #D3D1DB;
           font-family: MadeTommy-Medium;
         }
+      }
+    }
+
+    &-submit {
+      margin-top: 20px;
+      width: 100%;
+
+      input {
+        height: 60px;
+        background-color: #0B013A;
+        color: white;
+        font-family: MadeTommy-Medium;
+        border: none;
+        font-size: 20px;
+        padding: 0 25px;
+        margin-left: auto;
+        display: block;
       }
     }
 

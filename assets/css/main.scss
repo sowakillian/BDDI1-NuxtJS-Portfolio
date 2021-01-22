@@ -72,6 +72,22 @@ body {
   font-family: 'MadeTommy-Regular', sans-serif;
   font-size: 14px;
   //cursor: none;
+
+  --color-text: #fff;
+  --color-bg: #131212;
+  --color-link: #d75828;
+  --color-link-hover: #fff;
+  --color-gallery-title: #463832;
+  --color-gallery-number: #ffffff;
+  --color-gallery-link: #fff;
+  --color-gallery-link-bg: #d75828;
+  --color-gallery-link-hover: #fff;
+  --color-gallery-link-bg-hover: #d4b77d;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  --cursor-stroke: none;
+  --cursor-fill: #ffffff;
+  --cursor-stroke-width: 1px;
 }
 
 .page-leave-active {
@@ -119,14 +135,15 @@ a, a:visited {
 
   &-quote {
     font-family: "IntegralCF-Bold";
-    font-size: 190px;
+    font-size: 160px;
     opacity: 0.06;
     position: absolute;
     left: 50%;
-    top: 30%;
+    top: -8%;
     transform: translate(-50%, -50%);
     width: auto;
     white-space: nowrap;
+    z-index: 2;
   }
 
   .darkTitle {
@@ -138,10 +155,11 @@ a, a:visited {
   }
 
   &-mainTitle {
+    transition: color 1s ease;
     font-size: 80px;
     text-align: center;
-
-
+    z-index: 3;
+    position: relative;
 
     span {
       color: #FD3D57;

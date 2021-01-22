@@ -3,7 +3,7 @@
       <home-landing />
       <home-create />
       <home-brands />
-      <home-contact2 />
+      <home-works />
   </div>
 </template>
 
@@ -11,6 +11,7 @@
 import HomeLanding from '~/components/home/HomeLanding.vue';
 import HomeCreate from '~/components/home/HomeCreate';
 import HomeBrands from '~/components/home/HomeBrands';
+import HomeWorks from '~/components/home/HomeWorks';
 import HomeContact2 from "~/components/home/HomeContact2";
 import HomeProjects from '~/components/home/HomeProjects.vue';
 import HomeAbout from '~/components/home/HomeAbout.vue';
@@ -25,6 +26,7 @@ export default {
     HomeLanding,
     HomeCreate,
     HomeBrands,
+    HomeWorks,
     HomeContact2,
     HomeProjects,
     HomeAbout,
