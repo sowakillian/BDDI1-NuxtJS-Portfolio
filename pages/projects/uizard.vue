@@ -40,13 +40,13 @@
 
         data (){
             return {
-                title: "POLO",
+                title: "UIZARD",
                 imageHeader: "/images/drop_photoheader.jpg",
-                bgColor: "#D2EBF3",
-                title2: "A dream since I’m a child, create my wear brand",
-                date: "2018",
+                bgColor: "#FFC600",
+                title2: "What a pleasure to work for a crazy tool like that",
+                date: "2020",
                 skills: ['Fullstack development', 'Graphic design', 'Team management', 'E-commerce',],
-                desc: "DropClothes is a wear brand I created before started my studies. Until today, Drop stay my best project, I created the website, managed the team (with graphic designers, photographers, video makers..). I was very young and this project was very exciting. My error with DropClothes was the marketing, I let this part on the side and it was not a good idea but today, I’m really happy about all what has been done with Drop.",
+                desc: "Uizard is a tool to transform wireframes into websites or applications Uizard is a tool to transform wireframes into websites or applications Uizard is a tool to transform wireframes into websites or applications Uizard is a tool to transform wireframes into websites or applications Uizard is a tool to transform wireframes into websites or applications Uizard is a tool to transform wireframes into websites or applications Uizard is a tool to transform wireframes into websites or applications",
                 nextproject:"POLO",
                 nextprojecturl:"/projects/polo",
                 mockup: "http://sowakillian.fr/wp-content/uploads/2019/05/dropmockup_big-1.png",

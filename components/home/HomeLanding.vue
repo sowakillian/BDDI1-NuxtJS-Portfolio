@@ -8,27 +8,11 @@
       <a href="#" onclick="alert('I don\'t have Behance, but it\'s cool to have this logo :)')"><img src="~/assets/images/behance-network.svg"></a>
     </div>
     <div class="home-landing-title">
-      <div class="home-landing-title-squares" v-bind:class="{ 'home-landing-title-squares-visible': indexAnimations.otherAnimations }">
-        <div class="home-landing-title-squares-square home-landing-title-squares-square-1">
-        </div>
-        <div class="home-landing-title-squares-square home-landing-title-squares-square-2">
-        </div>
-        <div class="home-landing-title-squares-square home-landing-title-squares-square-3">
-        </div>
-        <div class="home-landing-title-squares-square home-landing-title-squares-square-4">
-        </div>
-        <div class="home-landing-title-squares-square home-landing-title-squares-square-5">
-        </div>
-        <div class="home-landing-title-squares-square home-landing-title-squares-square-6">
-        </div>
-        <div class="home-landing-title-squares-square home-landing-title-squares-square-7">
-        </div>
-      </div>
-      <div class="home-landing-title-quote">KILLIAN SOWA<br />CRAZY DEVELOPER</div>
+      <div class="home-landing-title-quote" v-bind:class="{ 'home-landing-title-quote-visible': indexAnimations.otherAnimations }">KILLIAN SOWA<br />CRAZY DEVELOPER</div>
       <div class="home-landing-title-invisible-overlay" v-bind:class="{ 'home-landing-title-invisible-overlay-hidden': indexAnimations.overlayHidden, 'home-landing-title-invisible-overlay-hidden-out': indexAnimations.otherAnimations,  }"></div>
       <div class="home-landing-title-h1">
-        <h1 class="home-landing-title-h1-stroke" v-bind:class="{ 'home-landing-title-h1-stroke-visible': indexAnimations.titleVisible }">Welcome home,</h1>
-        <h1 class="home-landing-title-h1-full" v-bind:class="{ 'home-landing-title-h1-full-visible': indexAnimations.titleVisible }">Welcome home,</h1>
+        <h1 class="home-landing-title-h1-stroke" v-bind:class="{ 'home-landing-title-h1-stroke-visible': indexAnimations.titleVisible, 'home-landing-title-h1-stroke-hidden': indexAnimations.otherAnimations }">Welcome home<span>.</span></h1>
+        <h1 class="home-landing-title-h1-full" v-bind:class="{ 'home-landing-title-h1-full-visible': indexAnimations.titleVisible, 'home-landing-title-h1-full-black': indexAnimations.otherAnimations } ">Welcome home<span>.</span></h1>
       </div>
       <div class="home-landing-title-h2"><h2 class="home-landing-title-h2-text" v-bind:class="{ 'home-landing-title-h2-text-visible': indexAnimations.otherAnimations }">I'm Killian, your crazy developer.</h2></div>
     </div>
@@ -47,7 +31,7 @@
       computed: mapState(['indexAnimations']),
 
       mounted() {
-        this.changeBgColor();
+       this.changeBgColor();
       },
 
       methods: {
@@ -61,7 +45,7 @@
           });
 
           scrollScene.Scene.on('enter', () => {
-            document.body.style.background = "#FD3D57";
+            document.body.style.background = "black";
           });
 
 
@@ -110,17 +94,17 @@
 </script>
 <style lang="scss">
   .home-landing {
-    display: none;
     height: 100vh;
     width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: #FD3D57;
     transition: all 2s ease;
+    background-color: black;
 
   &-backgroundAdded {
-     background-color: transparent;
+     background-color: black;
    }
 
 
@@ -143,19 +127,26 @@
   }
 
   &-socials {
-     background-color: white;
+     background-color: #FD3D57;
      display: flex;
      flex-direction: column;
      position: fixed;
      left: -60px;
      opacity: 0;
-     bottom: 10%;
-     width: 3%;
+     top: 50%;
+    transform: translateY(-50%);
+     width: 70px;
+
      justify-content: center;
      align-items: center;
      padding: 30px 5px 0px 5px;
      z-index: 15;
      transition: all 2s ease;
+
+    &-white {
+      transition: all 0.2s ease;
+      background-color: white;
+    }
 
   &-visible {
      opacity: 1;
@@ -185,13 +176,21 @@
     &-quote {
       font-family: "IntegralCF-Bold";
       font-size: 200px;
-      opacity: 0.1;
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
       left: 50%;
       top: 30%;
       transform: translate(-50%, -50%);
       width: auto;
       white-space: nowrap;
+      transition: opacity 5s ease;
+      display: none;
+
+      &-visible {
+        opacity: 0.1;
+        visibility: visible;
+      }
     }
 
     &-squares {
@@ -261,7 +260,7 @@
     }
 
   &-invisible-overlay {
-     background-color: #FD3D57;
+     background-color: black;
      width: 100%;
      height: 200px;
      position: absolute;
@@ -283,6 +282,7 @@
      font-size: 90px;
      position: relative;
      height: 100px;
+      color: white;
 
   &-full, &-stroke {
              position: absolute;
@@ -294,15 +294,28 @@
              opacity: 0;
              transition: all 2s ease;
 
+    &-hidden {
+      -webkit-text-stroke-color: black !important;
+    }
+
   &-visible {
      visibility: visible;
      opacity: 1;
    }
   }
+
   &-full {
      color: white;
+    transition: all 2s ease;
 
+      span {
+        color: #FD3D57;
+      }
      z-index: 2;
+
+    &-black {
+      color: white;
+    }
    }
 
 
@@ -312,17 +325,22 @@
      -webkit-text-stroke-width: 2px;
      -webkit-text-stroke-color: white;
      z-index: 10;
+
+    span {
+      -webkit-text-stroke-width: 0px;
+    }
    }
   }
 
   &-h2 {
      font-size: 50px;
-     color: white;
+    color: black;
      overflow: hidden;
      height: 60px;
      transition: all 4s ease;
      z-index: 12;
      position: relative;
+    font-family: MadeTommy-Thin;
 
   &-text {
      transform: translateY(-32px);
@@ -338,6 +356,7 @@
   }
 
   &-scroll-incitator {
+    display: none;
      height: 180px;
      width: 2px;
      position: absolute;

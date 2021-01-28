@@ -1,9 +1,9 @@
 <template>
   <div class="container">
       <home-landing />
-      <home-create />
-      <home-brands />
-      <home-works />
+      <home-create  />
+      <home-brands  />
+      <home-works  />
   </div>
 </template>
 
@@ -13,9 +13,6 @@ import HomeCreate from '~/components/home/HomeCreate';
 import HomeBrands from '~/components/home/HomeBrands';
 import HomeWorks from '~/components/home/HomeWorks';
 import HomeContact2 from "~/components/home/HomeContact2";
-import HomeProjects from '~/components/home/HomeProjects.vue';
-import HomeAbout from '~/components/home/HomeAbout.vue';
-import HomeContact from '~/components/home/HomeContact.vue';
 
 let titleVisible;
 let overlayHidden;
@@ -28,10 +25,8 @@ export default {
     HomeBrands,
     HomeWorks,
     HomeContact2,
-    HomeProjects,
-    HomeAbout,
-    HomeContact,
   },
+
 
 
     mounted() {
@@ -45,7 +40,18 @@ export default {
 
       otherAnimations = setTimeout(() => {
             this.$store.commit('CHANGE_INDEXANIMATION_OTHERANIMATIONS_STATE', true);
-        }, 6000)
+        }, 6000);
+
+      //this.scrollSmooth();
+    },
+
+    methods: {
+      scrollSmooth() {
+        const scroll = new this.locomotiveScroll({
+          el: document.querySelector('[data-scroll-container]'),
+          smooth: true
+        });
+      },
     },
 
     destroyed() {

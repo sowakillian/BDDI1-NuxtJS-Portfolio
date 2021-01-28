@@ -65,7 +65,7 @@ export default {
 
 <style lang="scss">
 .contact2 {
-  display: none;
+
   .wrap {
     height: 100vh;
     display: flex;

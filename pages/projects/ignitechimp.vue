@@ -40,9 +40,9 @@
 
         data (){
             return {
-                title: "POLO",
+                title: "IGNITECHIMP",
                 imageHeader: "/images/drop_photoheader.jpg",
-                bgColor: "#D2EBF3",
+                bgColor: "#FF7B36",
                 title2: "A dream since I’m a child, create my wear brand",
                 date: "2018",
                 skills: ['Fullstack development', 'Graphic design', 'Team management', 'E-commerce',],

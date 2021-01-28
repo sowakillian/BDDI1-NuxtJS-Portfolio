@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <project-header :title="title" :background="background" />
-    <project-desc :title2="title2" :hashtags="hashtags" :desc="desc" :video="video" :mockup="mockup"/>
-    <project-next :nextproject="nextproject" :nextprojecturl="nextprojecturl" :nextbackground="nextbackground"/>
+  <div class="container" data-scroll-container>
+    <project-header data-scroll-section  :title="title" :image="imageHeader" :bgColor="bgColor" :titleColor="titleColor"/>
+    <project-desc data-scroll-section :title2="title2" :color="bgColor" :skills="skills" :desc="desc" :date="date" :video="video" :mockup="mockup"/>
+    <project-next data-scroll-section :nextproject="nextproject" :nextprojecturl="nextprojecturl" :nextbackground="nextbackground"/>
   </div>
 </template>
 
@@ -10,6 +10,7 @@
     import ProjectHeader from '~/components/projects/ProjectHeader.vue'
     import ProjectDesc from '~/components/projects/ProjectDesc.vue'
     import ProjectNext from '~/components/projects/ProjectNext.vue'
+    import { ScrollScene } from 'scrollscene'
 
     export default {
         components: {
@@ -18,13 +19,34 @@
             ProjectNext,
         },
 
+      mounted() {
+          this.changeBgColor()
+        //this.scrollSmooth()
+      },
+
+      methods: {
+          scrollSmooth() {
+            const scroll = new this.locomotiveScroll({
+              el: document.querySelector('[data-scroll-container]'),
+              smooth: true
+            });
+          },
+
+        changeBgColor() {
+          document.body.style.background = "white";
+        },
+      },
+
         data (){
             return {
                 title: "DROPCLOTHES",
-                background: "http://sowakillian.fr/wp-content/uploads/2019/05/background_drop.jpg",
-                title2: "DROP.",
-                desc: "I created DropClothes in 2017. DropClothes was an online wear brand. It is probably the most interesting project I have done in my life  : web programming, communication, e-commerce, stock management, team management, I worked with a team of 4 people and it was really a crazy experience !",
-                hashtags: "2018 - #HTML #CSS #PHP #JS #MANAGEMENT",
+                imageHeader: "/images/drop_photoheader.jpg",
+                bgColor: "#99D6DC",
+                titleColor: "#48A6AF",
+                title2: "A dream since I’m a child, create my wear brand",
+                date: "2018",
+                skills: ['Fullstack development', 'Graphic design', 'Team management', 'E-commerce',],
+                desc: "DropClothes is a wear brand I created before started my studies. Until today, Drop stay my best project, I created the website, managed the team (with graphic designers, photographers, video makers..). I was very young and this project was very exciting. My error with DropClothes was the marketing, I let this part on the side and it was not a good idea but today, I’m really happy about all what has been done with Drop.",
                 nextproject:"POLO",
                 nextprojecturl:"/projects/polo",
                 mockup: "http://sowakillian.fr/wp-content/uploads/2019/05/dropmockup_big-1.png",

@@ -1,24 +1,29 @@
 <template>
   <section class="project-presentation">
-    <div class="project-presentation-description">
-      <span class="project-presentation-description__title">{{ title2 }}</span>
-      <p class="project-presentation-description__typeAndDate">{{ hashtags }}</p>
-      <p class="project-presentation-description__text">{{ desc }}</p>
+    <div class="project-presentation-texts">
+      <div class="project-presentation-titleAndDesc">
+        <span class="project-presentation-titleAndDesc-title" data-scroll data-scroll-speed="2">{{ title2 }}<span :style="{color: color}">.</span></span>
+        <p class="project-presentation-titleAndDesc-text">{{ desc }}</p>
+      </div>
+      <div class="project-presentation-dateAndSkills">
+      <span class="project-presentation-dateAndSkills-date">
+        {{ date }}<span :style="{color: color}">.</span>
+      </span>
+        <div class="project-presentation-dateAndSkills-skills">
+          <p class="project-presentation-dateAndSkills-skills-title">PROJECT SKILLS</p>
+          <ul>
+            <li v-for="skill in skills">
+              {{ skill }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="project-presentation-mockup">
-      <div  class="project-presentation-mockup-frammi" v-if="mockup === 'http://dropclothes.com/portfolio-killian/mockuframmi.png'">
-        <img :src="mockup">
-      </div>
-      <div  class="project-presentation-mockup-drop" v-if="mockup === 'http://sowakillian.fr/wp-content/uploads/2019/05/dropmockup_big-1.png'">
-        <img :src="mockup">
-      </div>
-      <div  class="project-presentation-mockup-nodeapi" v-if="mockup === 'http://dropclothes.com/portfolio-killian/nodeapi.jpg'">
-        <img :src="mockup">
-      </div>
-      <div  class="project-presentation-mockup-sacha" v-if="mockup === 'http://dropclothes.com/portfolio-killian/sachamockup.png'">
-        <img :src="mockup">
-      </div>
+
+    <div class="project-presentation-photo" >
+      <img src="~/assets/images/drop_photo1.jpg"/>
     </div>
+
   </section>
 </template>
 
@@ -28,9 +33,11 @@
     export default {
         props: [
             'title2',
-            'hashtags',
             'desc',
-            'mockup'
+            'mockup',
+            'color',
+            'skills',
+            'date'
         ],
 
     }
@@ -39,14 +46,68 @@
 <style lang="scss">
   .project-presentation {
     padding: 150px 65px;
-    display: flex;
     font-family: 'Roboto-Light';
     font-size: 20px;
     max-width: 1400px;
     margin: 0 auto 90px auto;
+    color: black;
+    position: relative;
+    z-index: 3;
+  background-color: white;
 
-    & > * {
-      width: 50%;
+    &-texts {
+      display: flex;
+      text-align: left;
+      justify-content: space-between;
+    }
+
+    &-photo {
+      margin-top: 100px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    &-titleAndDesc {
+    width: 60%;
+
+      &-title {
+        font-family: MadeTommy-Bold;
+        font-size: 50px;
+        margin-bottom: 50px;
+        display: block;
+      }
+
+      &-text {
+        font-family: MadeTommy-Light;
+        font-size: 20px;
+        line-height: 35px;
+      }
+    }
+
+    &-dateAndSkills {
+      &-date {
+        font-family: MadeTommy-Bold;
+        font-size: 50px;
+        margin-bottom: 50px;
+        display: block;
+      }
+
+      &-skills {
+        margin-top: 105px;
+        &-title {
+          font-size: 16px;
+          margin-bottom: 20px;
+          font-family: MadeTommy-Medium;
+        }
+
+        ul {
+          font-family: MadeTommy-Light;
+          font-size: 20px;
+          line-height: 35px;
+        }
+      }
     }
 
     &-mockup {
@@ -93,10 +154,7 @@
     &-description {
       text-align: left;
       &__title {
-        font-family: IntegralCF;
-        font-size: 100px;
-        margin-bottom: 50px;
-        display: block;
+
       }
 
       &__typeAndDate {

@@ -9,31 +9,40 @@
       </div>
       <div class="brands-brands">
         <div class="brands-brands-line">
-          <a href="http://www.6play.fr" target="_blank" class="brands-brands-brand sixplay">
+          <a href="http://www.6play.fr" target="_blank" class="brands-brands-brand sixplay" >
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/1.jpg)">
+            </div>
             <img src="~/assets/images/logo_6play_white.png">
-            <span class="brands-brands-brand-desc">I developed it<span>.</span></span>
+            <span class="brands-brands-brand-desc">I worked on it<span>.</span></span>
           </a>
           <a href="https://www.libramedia.ca/" target="_blank"  class="brands-brands-brand libra">
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/2.jpg)"></div>
             <img src="~/assets/images/logo_libra_white.png">
             <span class="brands-brands-brand-desc">I worked there<span>.</span></span>
           </a>
           <a href="https://www.salto.fr/" target="_blank"  class="brands-brands-brand salto">
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/3.jpg)"></div>
             <img src="~/assets/images/logo_salto_white.png">
-            <span class="brands-brands-brand-desc">I developed it<span>.</span></span>
+            <span class="brands-brands-brand-desc">I worked on it<span>.</span></span>
           </a>
           <a href="https://www.uizard.io/" target="_blank"  class="brands-brands-brand uizard">
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/4.jpg)"></div>
             <img src="~/assets/images/logo_uizard_white.png">
             <span class="brands-brands-brand-desc">I worked for them<span>.</span></span>
           </a>
         </div>
         <div class="brands-brands-line">
           <a href="https://www.newquest.fr/" target="_blank"  class="brands-brands-brand newquest"><img src="~/assets/images/logo_newquest_white.png">
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/4.jpg)"></div>
             <span class="brands-brands-brand-desc">I worked there<span>.</span></span></a>
           <a href="https://www.tf1.fr/" target="_blank" class="brands-brands-brand tf1"><img src="~/assets/images/logo_uizard_white.png">
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/3.jpg)"></div>
             <span class="brands-brands-brand-desc">I worked for them<span>.</span></span></a>
           <a href="https://www.dropclothes.com/" target="_blank" class="brands-brands-brand drop"><img src="~/assets/images/logo_drop_white.png">
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/2.jpg)"></div>
             <span class="brands-brands-brand-desc">I created it<span>.</span></span></a>
           <a href="https://www.rtl.be/" target="_blank" class="brands-brands-brand"><img src="~/assets/images/logo_rtl_black.png">
+            <div class="brands-brands-brand-background" style="background-image: url(/images/works/1.jpg)"></div>
             <span class="brands-brands-brand-desc">I worked for them<span>.</span></span></a>
         </div>
       </div>
@@ -43,7 +52,7 @@
 
 <style lang="scss">
 .brands {
-  display: none;
+  transform: rotate(10deg);
   .wrap {
     height: 100vh;
     display: flex;
@@ -83,6 +92,7 @@
       }
     }
     &-brand {
+
       width: calc(100% / 4);
       text-align: center;
       height: 100%;
@@ -91,6 +101,25 @@
       justify-content: center;
       transition: all 0.5s ease;
       position: relative;
+
+      img {
+        z-index: 3;
+        position: relative;
+      }
+
+      &-background {
+        background-position: center center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease;
+      }
 
       &-desc {
         color: #FD3D57;
@@ -117,6 +146,12 @@
           opacity: 1;
           visibility: visible;
         }
+
+        .brands-brands-brand-background {
+          opacity: 0.1;
+          visibility: visible;
+        }
+
         cursor: pointer;
       }
 
@@ -172,7 +207,24 @@ export default {
     this.changeBgColor();
   },
 
+  beforeMount () {
+    window.addEventListener('scroll', this.scrollEffects);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollEffects);
+  },
+
   methods: {
+    scrollEffects() {
+      const sectionBrands = document.querySelector('.brands');
+      const basicRotation = 10-(((window.scrollY-sectionBrands.clientHeight)/sectionBrands.clientHeight)*10);
+      let rotation = basicRotation > 0 ? basicRotation : 0;
+
+      sectionBrands.style.transform = `rotate(${rotation}deg)`;
+      console.warn((window.scrollY/sectionBrands.clientHeight));
+      // Your scroll handling here
+    },
+
     changeBgColor() {
       const homeWorks = document.querySelector('.brands');
       const sectionTitle = document.querySelector('.brands .section-title-mainTitle');
@@ -188,16 +240,12 @@ export default {
         document.body.style.background = "black";
         sectionTitle.classList.add('whiteTitle');
         sectionTitleQuote.classList.add('whiteTitle');
-        sectionTitle.classList.remove('darkTitle');
-        sectionTitleQuote.classList.remove('darkTitle');
       });
 
       scrollScene.Scene.on('leave', () => {
-        document.body.style.background = "white";
-        sectionTitle.classList.remove('whiteTitle');
-        sectionTitleQuote.classList.remove('whiteTitle');
-        sectionTitle.classList.add('darkTitle');
-        sectionTitleQuote.classList.add('darkTitle');
+        document.body.style.background = "#FD3D57";
+        sectionTitle.classList.add('whiteTitle');
+        sectionTitleQuote.classList.add('whiteTitle');
       });
 
     },

@@ -10,7 +10,6 @@
       <div class="create-content">
         <div class="create-content-left">
           <div class="create-content-title">
-            <p>Let me develop all your ideas.</p>
           </div>
           <div class="create-content-desc">
             <p>You have an idea, a concept or you just need to present your company ? I could develop websites or applications for you. I’m specialized in dynamic websites (with JavaScript) and iOS Apps (with Swift)</p>
@@ -32,11 +31,33 @@ export default {
     this.changeBgColor();
   },
 
+  beforeMount () {
+    window.addEventListener('scroll', this.scrollEffects);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollEffects);
+  },
+
   methods: {
+    scrollEffects() {
+      const sectionCreate = document.querySelector('.create');
+      const sectionCreateQuote = document.querySelector('.create .section-title-quote');
+      const basicRotation = 10-((window.scrollY/sectionCreate.clientHeight)*10);
+      const opacity = (window.scrollY/sectionCreate.clientHeight)*0.06;
+      let rotation = basicRotation > 0 ? basicRotation : 0;
+
+      sectionCreate.style.transform = `rotate(${rotation}deg)`;
+      sectionCreateQuote.style.opacity = `${opacity}`;
+      console.warn((window.scrollY/sectionCreate.clientHeight));
+      // Your scroll handling here
+    },
+
     changeBgColor() {
       const homeCreate = document.querySelector('.create');
       const sectionTitle = document.querySelector('.create .section-title-mainTitle');
       const sectionTitleQuote = document.querySelector('.create .section-title-quote');
+      const pinSocials = document.querySelector('.home-landing-socials');
+
 
       const scrollScene = new ScrollScene({
         triggerElement: homeCreate,
@@ -45,19 +66,19 @@ export default {
       });
 
       scrollScene.Scene.on('enter', () => {
-        document.body.style.background = "white";
-        sectionTitle.classList.add('darkTitle');
-        sectionTitle.classList.remove('whiteTitle');
-        sectionTitleQuote.classList.remove('whiteTitle');
+        document.body.style.background = "#FD3D57";
+        sectionTitle.classList.remove('darkTitle');
+        sectionTitle.classList.add('whiteTitle');
+        pinSocials.classList.add('home-landing-socials-white');
         sectionTitleQuote.classList.add('darkTitle');
       });
 
       scrollScene.Scene.on('leave', () => {
-        document.body.style.background = "#FD3D57";
-        sectionTitle.classList.remove('darkTitle');
-        sectionTitle.classList.add('whiteTitle');
-        sectionTitleQuote.classList.add('whiteTitle');
-        sectionTitleQuote.classList.remove('darkTitle');
+        document.body.style.background = "white";
+        sectionTitle.classList.add('darkTitle');
+        sectionTitle.classList.remove('whiteTitle');
+        pinSocials.classList.remove('home-landing-socials-white');
+        sectionTitleQuote.classList.add('darkTitle');
       });
 
     },
@@ -67,13 +88,31 @@ export default {
 
 <style lang="scss">
 .create {
-  display: none;
+  transform: rotate(10deg);
   .wrap {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
+  }
+
+  .section-title-quote {
+    opacity: 0;
+  }
+
+
+  .whiteTitle {
+    span {
+      transition: all 0.5s ease;
+      color: white;
+    }
+  }
+
+  .darkTitle {
+    span {
+      transition: all 0.5s ease;
+    }
   }
 
   &-content {
@@ -93,7 +132,7 @@ export default {
     }
 
     &-photo {
-      background-color: black;
+      background-color: white;
       width: 400px;
       height: 400px;
     }
@@ -102,6 +141,7 @@ export default {
       font-family: 'Roboto-Light';
       font-size: 20px;
       line-height: 30px;
+      color: white;
     }
   }
 
